@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Lagu Favorit</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #A0A081;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #333;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      background-color: #f7f5ef;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2a2a2a;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #A0A081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #8c8c6d;
+    }
+
+    #jam {
+      font-size: 17px;
+    }
+
+    footer {
+      background-color: #A0A081;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+
+  <script>
+    function kirimForm() {
+      alert("Terima kasih! Lagu favorit kamu sudah dikirim.");
+    }
+  </script>
+    <script>
+    function tampilWaktu() {
+      const waktu = new Date();
+      const tanggal = new Intl.DateTimeFormat('id-ID', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      }).format(waktu).replaceAll('/', '-');
+
+      document.getElementById("jam").innerHTML =
+        tanggal + " | " + waktu.toLocaleTimeString('id-ID');
+    }
+    setInterval(tampilWaktu, 1000);
+  </script>
+</head>
+
+<body onload="tampilWaktu()">
+<header>
+  <h1>Arctic Monkeys</h1>
+  <h2>Form Lagu Favorit</h2>
+  <p id="jam"></p>
+</header>
+
+<nav>
+  <a href="Index.html">Profil</a>
+  <a href="UAS ( ALBUM ).html">Album</a>
+  <a href="UAS ( GALERI ).html">Galeri</a>
+  <a href="UAS ( FORMULIR ).html">Voting</a>
+</nav>
+
+<div class="main-content">
+  <div class="form-container">
+    <h2>Form Lagu Favorit Arctic Monkeys</h2>
+
+    <form onsubmit="kirimForm(); return false;">
+      <!-- Nama -->
+      <label for="nama">Nama</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama" required>
+
+      <!-- Lagu Favorit -->
+      <label for="lagu">Lagu Favorit</label>
+      <select id="lagu" name="lagu" required>
+        <option value="">-- Pilih Lagu --</option>
+        <option>Do I Wanna Know?</option>
+        <option>505</option>
+        <option>Why'd You Only Call Me When You're High?</option>
+        <option>Arabella</option>
+        <option>R U Mine?</option>
+        <option>I Wanna Be Yours</option>
+      </select>
+
+      <!-- Alasan -->
+      <label for="alasan">Alasan Menyukai Lagu</label>
+      <textarea id="alasan" name="alasan" rows="4"
+        placeholder="Tuliskan alasan kamu menyukai lagu ini"></textarea>
+
+      <!-- Submit -->
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Nabil Ahmad Ajriel | 251011700800 | 01SIFP016</p>
+</footer>
+
+</body>
+</html>
